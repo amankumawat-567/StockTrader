@@ -3,7 +3,7 @@ import pandas as pd
 
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Dense, Input
-from Tensorflow.keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 
 from datetime import datetime
 import itertools
@@ -24,7 +24,7 @@ def get_data():
 class ReplayBuffer:
     # Experience replay memory
     
-    def __init__(self, s_dim, a_dim, size = 32):
+    def __init__(self, s_dim, a_dim, size):
         self.s_buf = np.zeros([size, s_dim], dtype=np.float32)
         self.next_s_buf = np.zeros([size, s_dim], dtype=np.float32)
         self.a_buf = np.zeros(size, dtype=np.uint8)
@@ -89,7 +89,7 @@ def MLP(input_dim, num_action, num_hidden_layers = 1, hidden_dim = 32):
     # creating model
     model = Model(i, x)
     model.compile(loss='mse',
-                  optimizer='adam')
+                  optimizer=Adam())
     print((model.summary()))
     return model
     
