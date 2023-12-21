@@ -307,7 +307,7 @@ if __name__ == '__main__':
     # config
     models_folder = 'Models'
     rewards_folder = 'Rewards'
-    num_episodes = 2000
+    num_episodes = 5
     batch_size = 32
     initial_investment = 20000
     
